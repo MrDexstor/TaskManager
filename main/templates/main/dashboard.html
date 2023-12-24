@@ -1,0 +1,22 @@
+{% extends "main/base_layer.html" %}
+{% block title %}Главная - DP{% endblock %}
+{% block content %}
+<div>
+    <h2 class="bs-title">Задачи требующие вашего внимания:</h2>
+    {% for tas in task %}
+	    <div class="row my-4">
+            <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                   <h5 class="card-header">{{  tas.name }}</h5>
+                   <div class="card-body">
+                       <h5 class="card-title">{{  tas.executor }}</h5>
+                   <p class="card-text">{{  tas.date }} - {{ tas.author }}</p>
+                   <p class="card-text text-success">{{  tas.descriptions }}</p>
+                </div>
+            </div>
+        </div>
+        </div>	
+	{% endfor %}
+
+	
+{% endblock %}
