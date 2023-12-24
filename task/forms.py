@@ -1,12 +1,19 @@
-from django import forms
+from django.forms import ModelForm, TextInput, DateTimeInput
 from main.models import Task
-from django import CreationForm
 
 
-class TaskRegisterForm(CreationForm):
-   
+class TaskRegisterForm(ModelForm):
     class Meta:
-        model = User
-        fields = ['name', 'descriptions', 'author', 'executor', 'date']
-        
-        
+        model = Task
+        fields = ['name', 'descriptions', 'executor']
+
+        widgets={
+            'name': TextInput(attrs={
+                'class': '',
+
+            }),
+            'descriptions': TextInput(attrs={
+                'class': '',
+
+            })
+        }
