@@ -1,5 +1,5 @@
 {% extends "main/base_layer.html" %}
-{% block title %}Задачи - DP{% endblock %}
+{% block title %}Возвраты - DP{% endblock %}
 {% block css %}
 .skrolling {
 width: 99hw;
@@ -9,16 +9,6 @@ overflow-y: scroll;
 {% endblock %}
 {% block content %}
 <main>
-    <div class='navbar'>
-        <button class="btn btn-outline-primary">
-            <a class="text-decoration-none" href="{% url 'task_create' %} ">Создать задачу</a>
-        </button>
-        <button class="btn btn-outline-primary">
-            <a class="text-decoration-none" href="{% url 'task_returned' %} ">Возвраты</a>
-        </button>
-    <a href="/task/base/19">djdj</a>
-        
-    </div>
     <div class='skrolling'>
         <table class="table">
             <tr>
@@ -30,8 +20,7 @@ overflow-y: scroll;
             </tr>
             {% for tas in task %}
             <tr>
-                
-                <td><a href="/task/base/{{ tas.id }}">{{ tas.id }}</a></td>
+                <td>{{ tas.id }}</td>
                 <td>{{ tas.name }}</td>
                 <td>{{ tas.executor }}</td>
                 <td>{{ tas.date }}</td>
@@ -43,5 +32,4 @@ overflow-y: scroll;
     </div>
 </main>
 {% endblock %}
-            <input type="text" id="id_author" value="{{ user.id }}">
-            <input type="text" id="id_state" value="{{ perm }}">
+  

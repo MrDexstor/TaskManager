@@ -5,7 +5,7 @@ from main.models import Task
 class TaskRegisterForm(ModelForm):
     class Meta:
         model = Task
-        fields = ['name', 'descriptions', 'executor']
+        fields = ['name', 'descriptions', 'executor', 'author', 'state']
 
         widgets={
             'name': TextInput(attrs={
