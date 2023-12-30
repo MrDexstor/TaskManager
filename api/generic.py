@@ -1,19 +1,11 @@
-"""    Проверка выполнения(Выполено, Обновлено)
-	Удалена
-	Проверяется(Удалено, Новое, Вернуть отправителю)
-	Обновлено(В работе, Вернуть отправителю)
-	Вернуть отправителю(Обновлено, Удалена)
-	Выполнено
-	В работе(Проверка выполнения, Вернуть отправителю)
-	Новое(В работе)
-	
-	"""
 from main.models import Task
 from task.models import task_state
+
+
 def getButtons(task_id):
-    iter = Task.objects.get(id=task_id)
-    state = str(iter.state.id)
-    if state == '1' :
+    task_object = Task.objects.get(id=task_id)
+    state = str(task_object.state.id)
+    if state == '1':
         action = task_state.objects.filter(id='2')
     elif state == '2':
         action1 = task_state.objects.filter(id='8')
@@ -39,4 +31,3 @@ def getButtons(task_id):
     else:
         action = None
     return action
-    

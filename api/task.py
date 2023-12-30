@@ -1,6 +1,9 @@
+from django.shortcuts import redirect
 from main.models import Task
+from task.models import task_state
 
-def update_state(request, id, state):
+
+def update_state(id, state):
     task = Task.objects.get(id=id)
     task.state = task_state.objects.get(id=state)
     task.save(update_fields=["state"])
@@ -9,10 +12,9 @@ def update_state(request, id, state):
 
 def BaseTaskState(request):
     user_id = request.user.id
-    base_state = 1
-    if user_id == 1 :
+    if user_id == 1:
         base_state = 1
-    else: 
+    else:
         base_state = 6
     return base_state
 
@@ -20,12 +22,14 @@ def BaseTaskState(request):
 def getUserFilteredTask(user, state_id):
     return Task.objects.filter(executor=user, state=state_id)
 
+
 def getReturnedTask(user):
     return Task.objects.filter(author=user, state='4')
 
+
 def getTask(request, page):
     user = request.user.id
-    if page == 'task_dashboard' :
+    if page == 'task_dashboard':
         task_working = getUserFilteredTask(user, '2')
         task_returned = getReturnedTask(user)
         task_new = getUserFilteredTask(user, '1')
@@ -36,5 +40,7 @@ def getTask(request, page):
     elif page == 'returned_task':
         task_returned = getReturnedTask(user)
         final = task_returned
-    data = {'task' : final }
+    else:
+        final = None
+    data = {'task': final}
     return data

@@ -1,7 +1,7 @@
 {% extends "main/base_layer.html" %}
 {% block title %}Задачи - DP{% endblock %}
 {% block css %}
-.skrolling {
+.scrolling {
 width: 99hw;
 overflow-x: scroll; 
 overflow-y: scroll; 
@@ -14,12 +14,13 @@ overflow-y: scroll;
             <a class="text-decoration-none" href="{% url 'task_create' %} ">Создать задачу</a>
         </button>
         <button class="btn btn-outline-primary">
+            <a class="text-decoration-none" href="{% url 'correct_task' %} ">Корректировки</a>
+        </button>
+        <button class="btn btn-outline-primary">
             <a class="text-decoration-none" href="{% url 'task_returned' %} ">Возвраты</a>
         </button>
-    <a href="/task/base/19">djdj</a>
-        
     </div>
-    <div class='skrolling'>
+    <div class='scrolling'>
         <table class="table">
             <tr>
                 <td>ID</td>
