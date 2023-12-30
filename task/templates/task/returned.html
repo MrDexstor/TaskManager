@@ -30,6 +30,27 @@ overflow-y: scroll;
             
         </table>
     </div>
+    <div class='scrolling'>
+        <table class="table">
+            <tr>
+                <td>ID</td>
+                <td>Название</td>
+                <td>Исполнитель</td>
+                <td>Дата</td>
+                <td>Состояние</td>
+            </tr>
+            {% for author in task_user %}
+            <tr>
+                <td>{{ author.id }}</td>
+                <td>{{ author.name }}</td>
+                <td>{{ author.executor }}</td>
+                <td>{{ author.date }}</td>
+                <td>{{ author.state }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
 </main>
 {% endblock %}
   

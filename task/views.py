@@ -45,4 +45,4 @@ def action(id, action):
 
 
 def corrections_task(request):
-    return render(request, 'task/corrections_task.html')
+    return render(request, 'task/corrections_task.html', getTask(request, 'returned_task'))

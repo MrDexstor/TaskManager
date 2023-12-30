@@ -10,15 +10,21 @@ overflow-y: scroll;
 {% block content %}
 <main>
     <div class='navbar'>
-        <button class="btn btn-outline-primary">
-            <a class="text-decoration-none" href="{% url 'task_create' %} ">Создать задачу</a>
-        </button>
-        <button class="btn btn-outline-primary">
-            <a class="text-decoration-none" href="{% url 'correct_task' %} ">Корректировки</a>
-        </button>
-        <button class="btn btn-outline-primary">
-            <a class="text-decoration-none" href="{% url 'task_returned' %} ">Возвраты</a>
-        </button>
+        <a class="text-decoration-none" href="{% url 'task_create' %} ">
+            <button class="btn btn-outline-primary">
+                Создать задачу
+            </button>
+        </a>
+        <a class="text-decoration-none" href="{% url 'correct_task' %} ">
+            <button class="btn btn-outline-primary">
+                Корректировки
+            </button>
+        </a>
+        <a class="text-decoration-none" href="{% url 'task_returned' %} ">
+            <button class="btn btn-outline-primary">
+                Возвраты
+            </button>
+        </a>
     </div>
     <div class='scrolling'>
         <table class="table">
