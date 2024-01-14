@@ -1,0 +1,35 @@
+{% extends "main/base_layer.html" %}
+{% block title %}Возвраты - DP{% endblock %}
+{% block css %}
+.scrolling {
+width: 99hw;
+overflow-x: scroll; 
+overflow-y: scroll; 
+}
+{% endblock %}
+{% block content %}
+<main>
+    <div class='scrolling'>
+        <table class="table">
+            <tr>
+                <td>ID</td>
+                <td>Название</td>
+                <td>Исполнитель</td>
+                <td>Дата</td>
+                <td>Состояние</td>
+            </tr>
+            {% for tas in task %}
+            <tr>
+                <td><a href="/task/base/{{ tas.id }}">{{ tas.id }}</a></td>
+                <td>{{ tas.name }}</td>
+                <td>{{ tas.executor }}</td>
+                <td>{{ tas.date }}</td>
+                <td>{{ tas.state }}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+</main>
+{% endblock %}
+  
